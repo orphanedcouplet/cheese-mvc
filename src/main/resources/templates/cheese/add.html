@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Ajoutez</title>
+</head>
+<body>
+<h1 th:text="${title}">Titre Par Défaut</h1>
+
+<form method="post">
+    <input type="text" name="fromageNom" />
+    <input type="submit" value="Ajoutez Un Fromage" />
+</form>
+</body>
+</html>
