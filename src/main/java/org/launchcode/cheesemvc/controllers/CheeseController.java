@@ -1,5 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,26 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String fromageNom, @RequestParam String descriptionFromage) {
         fromages.put(fromageNom, descriptionFromage);
+
+        // redirect to "cheese/"
+        return "redirect:";
+    }
+
+    // request path: "cheese/remove"
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCheeseForm(Model model) {
+        model.addAttribute("title", "Supprimez Un Fromage");
+        model.addAttribute("fromages", fromages);
+        return "cheese/remove";
+    }
+
+    // request path: "cheese/remove"
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCheeseForm(@RequestParam ArrayList<String> fromagesASupprimer) {
+
+        for (String fromageASupprimer : fromagesASupprimer) {
+            fromages.remove(fromageASupprimer);
+        }
 
         // redirect to "cheese/"
         return "redirect:";
