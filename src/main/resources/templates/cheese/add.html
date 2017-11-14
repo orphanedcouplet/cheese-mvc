@@ -7,11 +7,19 @@
 
     <nav th:replace="fragments :: navigation"></nav>
 
+    <hr />
 
     <form method="post">
-        <input type="text" name="fromageNom" />
-        <input type="submit" value="Ajoutez Un Fromage" />
+        <label for="fromageNom">Fromage:</label>
+        <input type="text" name="fromageNom" id="fromageNom"/>
+        <label for="descriptionFromage">Décrivez Votre Fromage:</label>
+        <input type="text" name="descriptionFromage" id="descriptionFromage"/>
+        <input type="submit" value="Ajoutez!" />
     </form>
+
+    <hr />
+
+    <nav th:replace="fragments :: navigation"></nav>
 
 </body>
 </html>

@@ -7,11 +7,28 @@
 
     <nav th:replace="fragments :: navigation"></nav>
 
+    <hr />
+
     <p th:unless="${fromages} and ${fromages.size()}">pas de fromages :(</p>
 
-    <ul>
-        <li th:each="fromage : ${fromages}" th:text="${fromage}"></li>
-    </ul>
+    <!--<ul>-->
+        <!--<li th:each="fromage : ${fromages}" th:text="${fromage}"></li>-->
+    <!--</ul>-->
+
+    <table border="1">
+        <tr>
+            <th>Fromage</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="fromage : ${fromages}">
+            <td th:text="${fromage.key}">Fromage</td>
+            <td th:text="${fromage.value}">Description Du Fromage</td>
+        </tr>
+    </table>
+
+    <hr />
+
+    <nav th:replace="fragments :: navigation"></nav>
 
 </body>
 </html>

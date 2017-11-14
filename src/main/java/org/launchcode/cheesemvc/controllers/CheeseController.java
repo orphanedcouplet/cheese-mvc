@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 @RequestMapping(value = "cheese")
 public class CheeseController {
 
-    static ArrayList<String> fromages = new ArrayList<>();
+    static HashMap<String, String> fromages = new HashMap<>();
 
     // request path: "cheese/"
     @RequestMapping(value = "")
@@ -31,8 +32,8 @@ public class CheeseController {
 
     // request path: "cheese/add"
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@RequestParam String fromageNom) {
-        fromages.add(fromageNom);
+    public String processAddCheeseForm(@RequestParam String fromageNom, @RequestParam String descriptionFromage) {
+        fromages.put(fromageNom, descriptionFromage);
 
         // redirect to "cheese/"
         return "redirect:";
