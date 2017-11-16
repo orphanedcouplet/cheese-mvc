@@ -17,8 +17,8 @@
             <th>Description</th>
         </tr>
         <tr th:each="fromage : ${fromages}">
-            <td th:text="${fromage.key}">Fromage</td>
-            <td th:text="${fromage.value}">Description Du Fromage</td>
+            <td th:text="${fromage.name}">Fromage</td>
+            <td th:text="${fromage.description}">Description Du Fromage</td>
         </tr>
     </table>
 
