@@ -52,9 +52,10 @@ public class CheeseController {
 
     // request path: "cheese/remove"
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<String> fromagesASupprimer) {
+    public String processRemoveCheeseForm(@RequestParam ArrayList<Cheese> fromagesASupprimer) {
 
-        for (String fromageASupprimer : fromagesASupprimer) {
+        // TODO figure out what is broken here
+        for (Cheese fromageASupprimer : fromagesASupprimer) {
             fromages.remove(fromageASupprimer);
         }
 
