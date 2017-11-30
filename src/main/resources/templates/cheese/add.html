@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container">
 
     <h1 th:text="${title}">Titre Par Défaut</h1>
 
@@ -9,11 +9,15 @@
 
     <hr />
 
-    <form method="post">
-        <label for="fromageNom">Fromage:</label>
-        <input type="text" name="fromageNom" id="fromageNom"/>
-        <label for="descriptionFromage">Décrivez Votre Fromage:</label>
-        <input type="text" name="descriptionFromage" id="descriptionFromage"/>
+    <form method="post" style="max-width:600px;">
+        <div class="form-group">
+            <label for="name-field">Fromage:</label>
+            <input class="form-control" id="name-field" type="text" name="fromageNom" />
+        </div>
+        <div class="form-group">
+            <label for="desc-field">Décrivez Votre Fromage:</label>
+            <input class="form-control" id="desc-field" type="text" name="descriptionFromage" />
+        </div>
         <input type="submit" value="Ajoutez!" />
     </form>
 

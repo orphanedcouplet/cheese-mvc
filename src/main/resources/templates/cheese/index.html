@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container">
 
     <h1 th:text="${title}">Titre Par Défaut</h1>
 
@@ -11,15 +11,18 @@
 
     <p th:unless="${fromages} and ${fromages.size()}">pas de fromages :(</p>
 
-    <table border="1">
+    <table class="table">
+
         <tr>
             <th>Fromage</th>
             <th>Description</th>
         </tr>
+
         <tr th:each="fromage : ${fromages}">
-            <td th:text="${fromage.name}">Fromage</td>
-            <td th:text="${fromage.description}">Description Du Fromage</td>
+            <td th:text="${fromage.name}">fromage</td>
+            <td th:text="${fromage.description}">description du fromage</td>
         </tr>
+
     </table>
 
     <hr />

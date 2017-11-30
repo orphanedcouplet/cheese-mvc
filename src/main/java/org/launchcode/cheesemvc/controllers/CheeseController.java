@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+
+import org.launchcode.cheesemvc.models.Cheese;
 
 @Controller
 @RequestMapping(value = "cheese")
 public class CheeseController {
 
-//    static HashMap<String, String> fromages = new HashMap<>();
     static ArrayList<Cheese> fromages = new ArrayList<>();
 
     // request path: "cheese/"
@@ -36,8 +38,11 @@ public class CheeseController {
     // request path: "cheese/add"
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String fromageNom, @RequestParam String descriptionFromage) {
-        fromages.add(new Cheese(fromageNom, descriptionFromage));
+//        Cheese nouveauFromage = new Cheese(fromageNom, descriptionFromage);
+//        fromages.add(nouveauFromage);
+//        return "redirect";
 
+        fromages.add(new Cheese(fromageNom, descriptionFromage));
         // redirect to "cheese/"
         return "redirect:";
     }
@@ -52,10 +57,10 @@ public class CheeseController {
 
     // request path: "cheese/remove"
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<Cheese> fromagesASupprimer) {
+    public String processRemoveCheeseForm(@RequestParam ArrayList<String> fromagesASupprimer) {
 
         // TODO figure out what is broken here
-        for (Cheese fromageASupprimer : fromagesASupprimer) {
+        for (String fromageASupprimer : fromagesASupprimer) {
             fromages.remove(fromageASupprimer);
         }
 
