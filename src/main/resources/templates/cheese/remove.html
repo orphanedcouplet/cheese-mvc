@@ -14,8 +14,8 @@
     <form method="post">
 
         <div th:each="fromage : ${fromages}" class="checkbox">
-            <input type="checkbox" name="fromagesASupprimer" th:value="${fromage.name}" th:id="${fromage.name}" />
-            <label th:for="${fromage.name}" th:text="${fromage.name}">fromage</label>
+            <input type="checkbox" name="idsDeFromage" th:value="${fromage.id}" th:id="${fromage.id}" />
+            <label th:for="${fromage.id}" th:text="${fromage.name}">fromage</label>
             <br />
         </div>
 

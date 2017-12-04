@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+
 <body class="container">
 
     <h1 th:text="${title}">Titre Par Défaut</h1>
@@ -16,11 +17,13 @@
         <tr>
             <th>Fromage</th>
             <th>Description</th>
+            <th>Type</th>
         </tr>
 
         <tr th:each="fromage : ${fromages}">
             <td th:text="${fromage.name}">fromage</td>
             <td th:text="${fromage.description}">description du fromage</td>
+            <td th:text="${fromage.type.name}"></td>
         </tr>
 
     </table>
